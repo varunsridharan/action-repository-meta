@@ -9,7 +9,7 @@
  * @return true
  */
 function set_action_env( $key, $value ) {
-	__( "::set-env name=${key}::${value}" );
+	_echo( "::set-env name=${key}::${value}" );
 	$_ENV[ $key ] = $value;
 	return true;
 }
@@ -27,18 +27,18 @@ function set_action_env_not_exists( $key, $value, $msg = false ) {
 	if ( ! isset( $_ENV[ $key ] ) ) {
 		set_action_env( $key, $value );
 		if ( $msg ) {
-			__( "✔️ ENV  ${key} IS SET WITH - ${value}" );
+			_echo( "✔️ ENV  ${key} IS SET WITH - ${value}" );
 		}
 		return true;
 	}
-	__( "ℹ️ ENV ${key} ALREADY EXISTS WITH VALUE - {$_ENV[$key]}" );
+	_echo( "ℹ️ ENV ${key} ALREADY EXISTS WITH VALUE - {$_ENV[$key]}" );
 	return false;
 }
 
 /**
  * @param      $content
  */
-function __( $content ) {
+function _echo( $content ) {
 	echo $content . PHP_EOL;
 }
 
