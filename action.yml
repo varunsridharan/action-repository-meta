@@ -1,5 +1,5 @@
 name: 'Github Repository Metadata'
-description: 'Githubction exposes useful metadata as environment variable which can be called / used in a workflow'
+description: 'Github Action exposes useful metadata as environment variable which can be called / used in a workflow'
 author: 'varunsridharan'
 branding:
   icon: 'database'

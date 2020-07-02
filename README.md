@@ -1,8 +1,8 @@
 <p align="center"><img src="https://cdn.svarun.dev/gh/actions-small.png" width="150px"/></p>
 
 # Repository Meta - ***Github Action***
-Github Action Provides With Various Repository Metadata 
-
+Github Action exposes useful metadata as environment variable which can be called / used in a workflow 
+ 
 ## 📥 ENV Variable
 Below listed variables are set by this action when used
 
