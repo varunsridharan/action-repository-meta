@@ -9,7 +9,7 @@
  * @return true
  */
 function set_action_env( $key, $value ) {
-	__( "::set-env name=${key}::${value}", true );
+	__( "::set-env name=${key}::${value}" );
 	$_ENV[ $key ] = $value;
 	return true;
 }
