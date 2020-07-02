@@ -24,6 +24,6 @@ if ( empty( $data ) ) {
 	die( '::error:: 🛑  Unable To Fetch Data From Github Api' );
 }
 
-if ( isset( $data['name'] ) ) {
-	set_action_env_not_exists( 'GITHUB_REPO_SLUG', $data['name'] );
+if ( isset( $data->name ) ) {
+	set_action_env_not_exists( 'GITHUB_REPO_SLUG', $data->name );
 }
