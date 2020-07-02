@@ -2,10 +2,10 @@ FROM php:cli-alpine
 
 COPY entrypoint.sh /entrypoint.sh
 
-COPY app /repository-meta/
+COPY app /gh-repo-meta/
 
 RUN chmod 777 entrypoint.sh
 
-RUN chmod -R 777 /repository-meta/
+RUN chmod -R 777 /gh-repo-meta/
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -2,13 +2,13 @@
 set_time_limit( 0 );
 error_reporting( E_ALL );
 
-use Milo\Github\Api;
-use Milo\Github\OAuth\Token;
-
 define( 'APP_PATH', __DIR__ . '/' );
 
 require_once APP_PATH . 'functions.php';
 require_once APP_PATH . 'vendor/autoload.php';
+
+use Milo\Github\Api;
+use Milo\Github\OAuth\Token;
 
 if ( empty( get_env( 'GITHUB_TOKEN' ) ) ) {
 	die( '::error:: 🛑 GITHUB_TOKEN ENV is not set !' );

@@ -1,3 +1,3 @@
 #!/bin/sh
-echo " "
-php /repository-meta/app.php
+echo "Fetching Repository Info"
+php /gh-repo-meta/app.php
