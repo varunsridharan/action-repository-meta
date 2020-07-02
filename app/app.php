@@ -23,7 +23,7 @@ $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 if ( empty( $data ) ) {
 	die( '::error:: 🛑  Unable To Fetch Data From Github Api' );
 }
-var_dump(isset( $data->name ));
+
 if ( isset( $data->name ) ) {
 	set_action_env_not_exists( 'REPOSITORY_SLUG', $data->name );
 	set_action_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $data->name ) ) );
