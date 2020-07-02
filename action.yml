@@ -1,0 +1,9 @@
+name: 'Repository Metadata'
+description: ''
+author: 'varunsridharan'
+branding:
+  icon: 'database'
+  color: 'yellow'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
