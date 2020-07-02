@@ -15,15 +15,14 @@ if ( empty( get_env( 'GITHUB_TOKEN' ) ) ) {
 
 $token  = get_env( 'GITHUB_TOKEN' );
 $repo   = get_env( 'GITHUB_REPOSITORY' );
-$gh_api = new Api();
-
-$gh_api->setToken( new Token( $token ) );
-$data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
+$gh_api = ( new Api() )->setToken( new Token( $token ) );
+$data   = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
 if ( empty( $data ) ) {
 	die( '::error:: 🛑  Unable To Fetch Data From Github Api' );
 }
-
+var_dump( $data->name );
+var_dump( $data );
 if ( isset( $data->name ) ) {
 	set_action_env_not_exists( 'GITHUB_REPO_SLUG', $data->name );
 }
