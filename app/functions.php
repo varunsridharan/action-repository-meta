@@ -27,7 +27,7 @@ function set_action_env_not_exists( $key, $value, $msg = true ) {
 	if ( ! isset( $_ENV[ $key ] ) ) {
 		set_action_env( $key, $value );
 		if ( $msg ) {
-			_echo( "✔️ ENV  ${key} IS SET WITH - ${value}" );
+			_echo( "✔️ ENV   ${key}   =   ${value}" );
 		}
 		return true;
 	}
