@@ -27,8 +27,6 @@ if ( empty( $data ) ) {
 	_error( 'Unable To Fetch Data From Github Api' );
 }
 
-_validate( $data, 'owner_name' );
-
 if ( _validate( $data, 'name' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_SLUG', $data->name );
 	set_action_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $data->name ) ) );

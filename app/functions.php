@@ -46,14 +46,14 @@ function _echo( $content ) {
  * @param $content
  */
 function _error( $content ) {
-	_echo( '::error::  🛑 ' . $content );
+	_echo( '::error::  🛑  ' . $content );
 }
 
 /**
  * @param $content
  */
 function _warning( $content ) {
-	_echo( '::warning::  ⚠️' . $content );
+	_echo( '::warning::  ⚠️  ' . $content );
 }
 
 /**
