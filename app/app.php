@@ -1,6 +1,7 @@
 <?php
 global $data;
 global $gh_api;
+global $repo;
 
 set_time_limit( 0 );
 error_reporting( E_ALL );
