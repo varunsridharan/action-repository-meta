@@ -74,5 +74,5 @@ if ( ! empty( get_env( 'GITHUB_SHA', false ) ) ) {
 	set_action_env_not_exists( 'SHA_SHORT', $sha_short );
 }
 _echo( 'JSON Data' );
-echo json_encode( $gh_api->decode( $gh_api->get( 'repos/' . $repo . '/topics' ) ) );
+var_dump( $gh_api->get( 'repos/' . $repo . '/topics' ) );
 _echo( ' ' );
