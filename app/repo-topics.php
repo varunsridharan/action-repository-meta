@@ -9,7 +9,7 @@ if ( empty( $topics ) ) {
 	try {
 		$topics = $gh_api->decode( $gh_api->get( 'repos/' . $repo . '/topics', [], [] ) );
 	} catch ( \Milo\Github\UnexpectedResponseException $exception ) {
-		$topics = $gh_api->decode( $gh_api->get( 'repos/varunsridharan/tag/topics', [], [ 'Accept' => 'application/vnd.github.mercy-preview+json' ] ) );
+		$topics = $gh_api->decode( $gh_api->get( 'repos/' . $repo . '/topics', [], [ 'Accept' => 'application/vnd.github.mercy-preview+json' ] ) );
 	}
 	$topics = ( isset( $topics->names ) && ! empty( $topics->names ) ) ? $topics->names : false;
 }
