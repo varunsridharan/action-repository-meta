@@ -27,7 +27,7 @@ function set_action_env_not_exists( $key, $value, $msg = true ) {
 	if ( ! isset( $_ENV[ $key ] ) ) {
 		set_action_env( $key, $value );
 		if ( $msg ) {
-			_echo( "✔️ ENV   ${key}      =      ${value}" );
+			_echo( "✔️ ENV  ${key}  =  ${value}" );
 		}
 		return true;
 	}
@@ -46,14 +46,14 @@ function _echo( $content ) {
  * @param $content
  */
 function _error( $content ) {
-	_echo( '::error ' . $content );
+	_echo( '::error::  🛑 ' . $content );
 }
 
 /**
  * @param $content
  */
 function _warning( $content ) {
-	_echo( '::warning::' . $content );
+	_echo( '::warning::  ⚠️' . $content );
 }
 
 /**

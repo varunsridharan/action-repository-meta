@@ -14,7 +14,7 @@ use Milo\Github\Api;
 use Milo\Github\OAuth\Token;
 
 if ( empty( get_env( 'GITHUB_TOKEN' ) ) ) {
-	die( '::error:: 🛑 GITHUB_TOKEN ENV is not set !' );
+	_error( 'GITHUB_TOKEN ENV is not set !' );
 }
 
 $token  = get_env( 'GITHUB_TOKEN' );
@@ -24,55 +24,53 @@ $gh_api->setToken( new Token( $token ) );
 $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
 if ( empty( $data ) ) {
-	die( '::error:: 🛑  Unable To Fetch Data From Github Api' );
+	_error( 'Unable To Fetch Data From Github Api' );
 }
 
-if ( _validate( $data, 'slug' ) ) {
-	echo 'Slug Success';
-}
+_validate( $data, 'owner_name' );
 
-if ( isset( $data->name ) ) {
+if ( _validate( $data, 'name' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_SLUG', $data->name );
 	set_action_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $data->name ) ) );
 }
 
-if ( isset( $data->full_name ) ) {
+if ( _validate( $data, 'full_name' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_FULL_NAME', $data->full_name );
 }
 
-if ( isset( $data->private ) ) {
+if ( _validate( $data, 'private' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_IS_PRIVATE', ( isset( $data->private ) && true === $data->private ) ? 'yes' : 'no' );
 }
 
-if ( isset( $data->fork ) ) {
+if ( _validate( $data, 'fork' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_IS_FORK', ( isset( $data->fork ) && true === $data->fork ) ? 'yes' : 'no' );
 }
 
-if ( isset( $data->html_url ) ) {
+if ( _validate( $data, 'html_url' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_GITHUB_URL', $data->html_url );
 }
 
-if ( isset( $data->homepage ) ) {
+if ( _validate( $data, 'homepage' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_HOMEPAGE_URL', $data->homepage );
 }
 
-if ( isset( $data->description ) ) {
+if ( _validate( $data, 'description' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_DESCRIPTION', $data->description );
 }
 
-if ( isset( $data->created_at ) ) {
+if ( _validate( $data, 'created_at' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_CREATED_AT', $data->created_at );
 }
 
-if ( isset( $data->updated_at ) ) {
+if ( _validate( $data, 'updated_at' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_UPDATED_AT', $data->updated_at );
 }
 
-if ( isset( $data->pushed_at ) ) {
+if ( _validate( $data, 'pushed_at' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_PUSHED_AT', $data->pushed_at );
 }
 
-if ( isset( $data->default_branch ) ) {
+if ( _validate( $data, 'default_branch' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_DEFAULT_BRANCH', $data->default_branch );
 }
 
