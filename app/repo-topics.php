@@ -14,8 +14,5 @@ if ( empty( $topics ) ) {
 	}
 }
 
-if ( ! empty( $topics ) ) {
-	$topics = json_encode( $topics );
-	var_dump( $topics );
-	set_action_env_not_exists( 'REPOSITORY_TOPICS', "'$topics'" );
-}
+$topics = ( empty( $topics ) ) ? '' : json_encode( $topics );
+set_action_env_not_exists( 'REPOSITORY_TOPICS', "'$topics'" );
