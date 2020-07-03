@@ -43,6 +43,20 @@ function _echo( $content ) {
 }
 
 /**
+ * @param $content
+ */
+function _error( $content ) {
+	_echo( '::error ' . $content );
+}
+
+/**
+ * @param $content
+ */
+function _warning( $content ) {
+	_echo( '::warning::' . $content );
+}
+
+/**
  * @param string $key
  * @param bool   $default
  *
@@ -50,4 +64,18 @@ function _echo( $content ) {
  */
 function get_env( $key, $default = false ) {
 	return ( isset( $_ENV[ $key ] ) ) ? $_ENV[ $key ] : $default;
+}
+
+/**
+ * @param $var
+ * @param $key
+ *
+ * @return bool
+ */
+function _validate( $var, $key ) {
+	if ( isset( $var->$key ) ) {
+		return true;
+	}
+	_warning( 'Unable To Fetch ' . $key );
+	return false;
 }

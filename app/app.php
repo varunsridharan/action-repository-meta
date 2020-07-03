@@ -27,6 +27,10 @@ if ( empty( $data ) ) {
 	die( '::error:: 🛑  Unable To Fetch Data From Github Api' );
 }
 
+if ( _validate( $data, 'slug' ) ) {
+	echo 'Slug Success';
+}
+
 if ( isset( $data->name ) ) {
 	set_action_env_not_exists( 'REPOSITORY_SLUG', $data->name );
 	set_action_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $data->name ) ) );
