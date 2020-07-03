@@ -1,4 +1,7 @@
 <?php
+global $data;
+global $gh_api;
+
 set_time_limit( 0 );
 error_reporting( E_ALL );
 
@@ -73,6 +76,5 @@ if ( ! empty( get_env( 'GITHUB_SHA', false ) ) ) {
 	$sha_short = substr( get_env( 'GITHUB_SHA', false ), 0, 8 );
 	set_action_env_not_exists( 'SHA_SHORT', $sha_short );
 }
-_echo( 'JSON Data' );
-var_dump( $gh_api->get( 'repos/' . $repo . '/topics' ) );
-_echo( ' ' );
+
+require_once APP_PATH . 'repo-topics.php';
