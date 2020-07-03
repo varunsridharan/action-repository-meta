@@ -73,6 +73,6 @@ if ( ! empty( get_env( 'GITHUB_SHA', false ) ) ) {
 	$sha_short = substr( get_env( 'GITHUB_SHA', false ), 0, 8 );
 	set_action_env_not_exists( 'SHA_SHORT', $sha_short );
 }
-_( 'JSON Data' );
+_echo( 'JSON Data' );
 echo json_encode( $data );
-_( ' ' );
+_echo( ' ' );
