@@ -21,6 +21,7 @@ Below listed variables are set by this action when used
 |`REPOSITORY_UPDATED_AT` | provides updated at date | `2020-07-02T07:01:30Z` |
 |`REPOSITORY_PUSHED_AT` | provides pushed at date | `2020-07-02T07:01:28Z` |
 |`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
+|`REPOSITORY_TOPICS` | provides current repository topics | `["topic1","topic2"]` |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
 
 
@@ -82,11 +83,11 @@ If you, or your company, use any of my projects or like what I’m doing, kindly
 ---
 
 <!-- Personl Links -->
-[paypal]: https://go.svarun.dev/paypal
-[buymeacoffee]: https://go.svarun.dev/buymeacoffee
+[paypal]: http://sva.onl/paypal
+[buymeacoffee]: http://sva.onl/buymeacoffee
 [sofythelabrador]: https://www.instagram.com/sofythelabrador/
-[github]: https://go.svarun.dev/github/
-[twitter]: https://go.svarun.dev/twitter/
-[telegram]: https://go.svarun.dev/telegram/
+[github]: http://sva.onl/github/
+[twitter]: http://sva.onl/twitter/
+[telegram]: http://sva.onl/telegram/
 [email]: https://go.svarun.dev/contact/email/
-[website]: https://go.svarun.dev/website/
+[website]: http://sva.onl/website/
