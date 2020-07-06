@@ -86,8 +86,8 @@ If you, or your company, use any of my projects or like what I’m doing, kindly
 [paypal]: http://sva.onl/paypal
 [buymeacoffee]: http://sva.onl/buymeacoffee
 [sofythelabrador]: https://www.instagram.com/sofythelabrador/
-[github]: http://sva.onl/github/
-[twitter]: http://sva.onl/twitter/
-[telegram]: http://sva.onl/telegram/
+[github]: http://sva.onl/github
+[twitter]: http://sva.onl/twitter
+[telegram]: http://sva.onl/telegram
 [email]: https://go.svarun.dev/contact/email/
-[website]: http://sva.onl/website/
+[website]: http://sva.onl/website
