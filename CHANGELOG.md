@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## 1.1 - 06/07/2020
 ### Added
-* Repository Topics Are now avaiable as ENV Variable `REPOSITORY_TOPICS`
+* Repository Topics Are now available as ENV Variable `REPOSITORY_TOPICS`
 
 ## 1.0 - 02/07/2020
 ### First Release
