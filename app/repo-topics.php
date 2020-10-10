@@ -16,7 +16,7 @@ if ( empty( $topics ) ) {
 
 if ( ! empty( $topics ) ) {
 	$topics = ( empty( $topics ) ) ? '' : json_encode( $topics );
-	set_action_env_not_exists( 'REPOSITORY_TOPICS', $topics );
+	set_action_env_not_exists( 'REPOSITORY_TOPICS', addslashes( $topics ) );
 } else {
 	_warning( 'Unable To Fetch Repository Topics' );
 }
