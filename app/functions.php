@@ -8,7 +8,8 @@
  * @return true
  */
 function set_action_env( $key, $value ) {
-	_echo( 'echo "' . $key . '=' . $value . '" >> $GITHUB_ENV' );
+	shell_exec( 'echo "' . $key . '=' . $value . '" >> $GITHUB_ENV' );
+	//echo( 'echo "' . $key . '=' . $value . '" >> $GITHUB_ENV' );
 	$_ENV[ $key ] = $value;
 	return true;
 }
