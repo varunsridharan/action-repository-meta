@@ -3,7 +3,7 @@ name: "Test"
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '*/60 * * * *'
 
@@ -16,3 +16,49 @@ jobs:
         uses: varunsridharan/action-repository-meta@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test Variables
+        run: |
+          echo "REPOSITORY_FULL_NAME => $REPOSITORY_FULL_NAME"
+          echo " "
+          echo "REPOSITORY_SLUG => $REPOSITORY_SLUG"
+          echo " "
+          echo "REPOSITORY_NAME => $REPOSITORY_NAME"
+          echo " "
+          echo "REPOSITORY_IS_PRIVATE => $REPOSITORY_IS_PRIVATE"
+          echo " "
+          echo "REPOSITORY_IS_FORK => $REPOSITORY_IS_FORK"
+          echo " "
+          echo "REPOSITORY_GITHUB_URL => $REPOSITORY_GITHUB_URL"
+          echo " "
+          echo "REPOSITORY_HOMEPAGE_URL => $REPOSITORY_HOMEPAGE_URL"
+          echo " "
+          echo "REPOSITORY_DESCRIPTION => $REPOSITORY_DESCRIPTION"
+          echo " "
+          echo "REPOSITORY_CREATED_AT => $REPOSITORY_CREATED_AT"
+          echo " "
+          echo "REPOSITORY_UPDATED_AT => $REPOSITORY_UPDATED_AT"
+          echo " "
+          echo "REPOSITORY_PUSHED_AT => $REPOSITORY_PUSHED_AT"
+          echo " "
+          echo "REPOSITORY_DEFAULT_BRANCH => $REPOSITORY_DEFAULT_BRANCH"
+          echo " "
+          echo "REPOSITORY_TOPICS => $REPOSITORY_TOPICS"
+          echo " "
+          echo "SHA_SHORT => $SHA_SHORT"
+          echo " "
+        env:
+          REPOSITORY_FULL_NAME: ${{ env.REPOSITORY_FULL_NAME }}
+          REPOSITORY_SLUG: ${{ env.REPOSITORY_SLUG }}
+          REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
+          REPOSITORY_IS_PRIVATE: ${{ env.REPOSITORY_IS_PRIVATE }}
+          REPOSITORY_IS_FORK: ${{ env.REPOSITORY_IS_FORK }}
+          REPOSITORY_GITHUB_URL: ${{ env.REPOSITORY_GITHUB_URL }}
+          REPOSITORY_HOMEPAGE_URL: ${{ env.REPOSITORY_HOMEPAGE_URL }}
+          REPOSITORY_DESCRIPTION: ${{ env.REPOSITORY_DESCRIPTION }}
+          REPOSITORY_CREATED_AT: ${{ env.REPOSITORY_CREATED_AT }}
+          REPOSITORY_UPDATED_AT: ${{ env.REPOSITORY_UPDATED_AT }}
+          REPOSITORY_PUSHED_AT: ${{ env.REPOSITORY_PUSHED_AT }}
+          REPOSITORY_DEFAULT_BRANCH: ${{ env.REPOSITORY_DEFAULT_BRANCH }}
+          REPOSITORY_TOPICS: ${{ env.REPOSITORY_TOPICS }}
+          SHA_SHORT: ${{ env.SHA_SHORT }}
