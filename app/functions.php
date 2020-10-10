@@ -9,7 +9,7 @@
  * @return true
  */
 function set_action_env( $key, $value ) {
-	_echo( "::set-env name=${key}::${value}" );
+	_echo( "echo \"$key=$value\" >> \$GITHUB_ENV" );
 	$_ENV[ $key ] = $value;
 	return true;
 }
