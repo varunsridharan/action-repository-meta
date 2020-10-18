@@ -55,6 +55,14 @@ if ( _validate( $data, 'homepage' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_HOMEPAGE_URL', $data->homepage );
 }
 
+if ( _validate( $data, 'git_url' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_GIT_URL', $data->git_url );
+}
+
+if ( _validate( $data, 'ssh_url' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_SSH_URL', $data->ssh_url );
+}
+
 if ( _validate( $data, 'description' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_DESCRIPTION', $data->description );
 }
@@ -79,5 +87,18 @@ if ( ! empty( get_env( 'GITHUB_SHA', false ) ) ) {
 	$sha_short = substr( get_env( 'GITHUB_SHA', false ), 0, 8 );
 	set_action_env_not_exists( 'SHA_SHORT', $sha_short );
 }
+
+if ( _validate( $data, 'watchers_count' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_WATCHERS_COUNT', $data->watchers_count );
+}
+
+if ( _validate( $data, 'stargazers_count' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_STARGAZERS_COUNT', $data->stargazers_count );
+}
+
+if ( _validate( $data, 'forks_count' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_FORKS_COUNT', $data->forks_count );
+}
+
 
 require_once APP_PATH . 'repo-topics.php';
