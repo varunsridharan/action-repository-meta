@@ -47,6 +47,26 @@ jobs:
           echo " "
           echo "SHA_SHORT => $SHA_SHORT"
           echo " "
+          echo "REPOSITORY_GIT_URL => $REPOSITORY_GIT_URL"
+          echo " "
+          echo "REPOSITORY_SSH_URL => $REPOSITORY_SSH_URL"
+          echo " "
+          echo "REPOSITORY_WATCHERS_COUNT => $REPOSITORY_WATCHERS_COUNT"
+          echo " "
+          echo "REPOSITORY_STARGAZERS_COUNT => $REPOSITORY_STARGAZERS_COUNT"
+          echo " "
+          echo "REPOSITORY_FORKS_COUNT => $REPOSITORY_FORKS_COUNT"
+          echo " "
+          echo "REPOSITORY_OWNER => $REPOSITORY_OWNER"
+          echo " "
+          echo "OWNER_PROFILE => $OWNER_PROFILE"
+          echo " "
+          echo "OWNER_TYPE => $OWNER_TYPE"
+          echo " "
+          echo "IS_OWNER_ORGANIZATION => $IS_OWNER_ORGANIZATION"
+          echo " "
+          echo "IS_OWNER_USER => $IS_OWNER_USER"
+          echo " "
         env:
           REPOSITORY_FULL_NAME: ${{ env.REPOSITORY_FULL_NAME }}
           REPOSITORY_SLUG: ${{ env.REPOSITORY_SLUG }}
@@ -62,3 +82,13 @@ jobs:
           REPOSITORY_DEFAULT_BRANCH: ${{ env.REPOSITORY_DEFAULT_BRANCH }}
           REPOSITORY_TOPICS: ${{ env.REPOSITORY_TOPICS }}
           SHA_SHORT: ${{ env.SHA_SHORT }}
+          REPOSITORY_GIT_URL: ${{ env.REPOSITORY_GIT_URL }}
+          REPOSITORY_SSH_URL: ${{ env.REPOSITORY_SSH_URL }}
+          REPOSITORY_WATCHERS_COUNT: ${{ env.REPOSITORY_WATCHERS_COUNT }}
+          REPOSITORY_STARGAZERS_COUNT: ${{ env.REPOSITORY_STARGAZERS_COUNT }}
+          REPOSITORY_FORKS_COUNT: ${{ env.REPOSITORY_FORKS_COUNT }}
+          REPOSITORY_OWNER: ${{ env.REPOSITORY_OWNER }}
+          OWNER_PROFILE: ${{ env.OWNER_PROFILE }}
+          OWNER_TYPE: ${{ env.OWNER_TYPE }}
+          IS_OWNER_ORGANIZATION: ${{ env.IS_OWNER_ORGANIZATION }}
+          IS_OWNER_USER: ${{ env.IS_OWNER_USER }}
