@@ -32,7 +32,7 @@ Below listed variables are set by this action when used
 | :---: | --- | --- |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
 |`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
-|`RELEASE_VERSION`* | provides branch name which is set as default | `Comment Hash` OR `Version Number` |
+|`RELEASE_VERSION`* | provides branch name which is set as default |`Branch` OR `Comment Hash` OR `Version Number` |
 
 
 ### Repository Owner Related Variables

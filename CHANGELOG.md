@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.3.1 - 18/10/2020
+### New Repository Commits Related Variables
+| ENV NAME | Description | Example |
+| :---: | --- | --- |
+|`RELEASE_VERSION` | provides branch name which is set as default | `Branch` OR `Comment Hash` OR `Version Number` |
+
+
 ## 1.3 - 18/10/2020
 ### New Repository Related Variables
 | ENV NAME | Description | Example |
