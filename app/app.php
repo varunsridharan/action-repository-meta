@@ -26,7 +26,7 @@ $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
 print_r( get_env( 'github' ) );
 print_r( $_ENV );
-print_r( json_decode('/github/workflow/event.json') );
+print_r( json_decode( file_get_contents( '/github/workflow/event.json' ) ) );
 
 if ( empty( $data ) ) {
 	_error( 'Unable To Fetch Data From Github Api' );
