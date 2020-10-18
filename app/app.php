@@ -24,6 +24,8 @@ $gh_api = new Api();
 $gh_api->setToken( new Token( $token ) );
 $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
+print_r( get_env( 'GITHUB_REF' ) );
+
 if ( empty( $data ) ) {
 	_error( 'Unable To Fetch Data From Github Api' );
 }
