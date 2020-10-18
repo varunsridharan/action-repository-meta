@@ -24,10 +24,6 @@ $gh_api = new Api();
 $gh_api->setToken( new Token( $token ) );
 $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
-print_r( get_env( 'github' ) );
-print_r( $_ENV );
-print_r( json_decode( file_get_contents( '/github/workflow/event.json' ) ) );
-
 if ( empty( $data ) ) {
 	_error( 'Unable To Fetch Data From Github Api' );
 }
@@ -116,5 +112,8 @@ if ( _validate( $data, 'forks_count' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_FORKS_COUNT', $data->forks_count );
 }
 
+$github_ref_regex = '#^refs/\w+/#';
+$github_ref       = preg_match( $github_ref_regex, get_env( 'GITHUB_REF' ) ) ? preg_replace( $github_ref_regex, '', get_env( 'GITHUB_REF' ) ) : null;
+set_action_env_not_exists( 'RELEASE_VERSION', $github_ref );
 
 require_once APP_PATH . 'repo-topics.php';

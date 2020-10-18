@@ -67,6 +67,8 @@ jobs:
           echo " "
           echo "IS_OWNER_USER => $IS_OWNER_USER"
           echo " "
+          echo "RELEASE_VERSION => $RELEASE_VERSION"
+          echo " "
         env:
           REPOSITORY_FULL_NAME: ${{ env.REPOSITORY_FULL_NAME }}
           REPOSITORY_SLUG: ${{ env.REPOSITORY_SLUG }}
@@ -92,3 +94,4 @@ jobs:
           OWNER_TYPE: ${{ env.OWNER_TYPE }}
           IS_OWNER_ORGANIZATION: ${{ env.IS_OWNER_ORGANIZATION }}
           IS_OWNER_USER: ${{ env.IS_OWNER_USER }}
+          RELEASE_VERSION: ${{ env.RELEASE_VERSION }}

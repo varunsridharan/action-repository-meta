@@ -32,6 +32,8 @@ Below listed variables are set by this action when used
 | :---: | --- | --- |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
 |`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
+|`RELEASE_VERSION`* | provides branch name which is set as default | `Comment Hash` OR `Version Number` |
+
 
 ### Repository Owner Related Variables
 | ENV NAME | Description | Example |
@@ -42,7 +44,7 @@ Below listed variables are set by this action when used
 |`IS_OWNER_ORGANIZATION` |Set to `Yes` or `No` Based on `OWNER_TYPE` value  | `no` |
 |`IS_OWNER_USER` | Set to `Yes` or `No` Based on `OWNER_TYPE` value | `yes` |
 
-
+> * USING `RELEASE_VERSION` in normal comment will provide **Commit Hash** and if used in a taged version then it will provide the tag value **vX.X.X** 
 
 ## 🚀 Usage
 ### Example Workflow
