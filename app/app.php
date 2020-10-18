@@ -40,6 +40,20 @@ if ( _validate( $data, 'full_name' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_FULL_NAME', $data->full_name );
 }
 
+if ( _validate( $data, 'owner' ) ) {
+	set_action_env_not_exists( 'REPOSITORY_OWNER', $data->owner->login );
+	set_action_env_not_exists( 'OWNER_PROFILE', $data->owner->html_url );
+	set_action_env_not_exists( 'OWNER_TYPE', $data->owner->type );
+
+	if ( 'Organization' === $data->owner->type ) {
+		set_action_env_not_exists( 'IS_OWNER_ORGANIZATION', 'yes' );
+		set_action_env_not_exists( 'IS_OWNER_USER', 'no' );
+	} else {
+		set_action_env_not_exists( 'IS_OWNER_ORGANIZATION', 'no' );
+		set_action_env_not_exists( 'IS_OWNER_USER', 'yes' );
+	}
+}
+
 if ( _validate( $data, 'private' ) ) {
 	set_action_env_not_exists( 'REPOSITORY_IS_PRIVATE', ( isset( $data->private ) && true === $data->private ) ? 'yes' : 'no' );
 }
