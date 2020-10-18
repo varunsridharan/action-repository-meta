@@ -20,11 +20,12 @@ if ( empty( get_env( 'GITHUB_TOKEN' ) ) ) {
 
 $token  = get_env( 'GITHUB_TOKEN' );
 $repo   = get_env( 'GITHUB_REPOSITORY' );
+$repo   = 'wponion/google-fonts';
 $gh_api = new Api();
 $gh_api->setToken( new Token( $token ) );
 $data = $gh_api->decode( $gh_api->get( 'repos/' . $repo ) );
 
-print_r($data);
+print_r( $data );
 
 if ( empty( $data ) ) {
 	_error( 'Unable To Fetch Data From Github Api' );
