@@ -8,31 +8,39 @@ Below listed variables are set by this action when used
 
 ### Repository Related Variables
 | ENV NAME | Description | Example |
-| --- | --- | --- |
+| :---: | --- | --- |
 |`REPOSITORY_FULL_NAME`| provide exact repo name | `myname/test-repo` |
 |`REPOSITORY_SLUG`| provide exact slug for current repo | `myname/test-repo` => `test-repo` |
 |`REPOSITORY_NAME` | provide readable name | `test-repo` => `Test Repo` |
+|`REPOSITORY_DESCRIPTION` | provides value which is set in repo settings | `Your Custom Description` |
 |`REPOSITORY_IS_PRIVATE` | sets to **yes** if its a private repo | `yes` |
 |`REPOSITORY_IS_FORK` | sets to **yes** if its a forked repo | `yes` |
-|`REPOSITORY_GITHUB_URL` | provides github url for current repo | `https://github.com/myname/test-repo` |
-|`REPOSITORY_HOMEPAGE_URL` | provides url which is set in repo settings | `https://your-website.com` |
-|`REPOSITORY_DESCRIPTION` | provides value which is set in repo settings | `Your Custom Description` |
 |`REPOSITORY_CREATED_AT` | provides created at date | `2020-06-03T07:57:39Z` |
 |`REPOSITORY_UPDATED_AT` | provides updated at date | `2020-07-02T07:01:30Z` |
 |`REPOSITORY_PUSHED_AT` | provides pushed at date | `2020-07-02T07:01:28Z` |
-|`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
 |`REPOSITORY_TOPICS` | provides current repository topics | `["topic1","topic2"]` |
+|`REPOSITORY_WATCHERS_COUNT` | Provides Repository Watchers Count | `0` |
+|`REPOSITORY_STARGAZERS_COUNT` | Provides Repository Stars Count | `0` |
+|`REPOSITORY_FORKS_COUNT` | Provides Repository Forks Count | `0` |
+|`REPOSITORY_GITHUB_URL` | provides github url for current repo | `https://github.com/myname/test-repo` |
+|`REPOSITORY_HOMEPAGE_URL` | provides url which is set in repo settings | `https://your-website.com` |
+|`REPOSITORY_GIT_URL` | Provides Repository GIT URL | `git://github.com/xxx/xxx.git` |
+|`REPOSITORY_SSH_URL` | Provides Repository SSH URL | `git@github.com:xxx/xxx.git` |
+
+### Repository Commits Related Variables
+| ENV NAME | Description | Example |
+| :---: | --- | --- |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
-| `REPOSITORY_GIT_URL` | Provides Repository GIT URL | `git://github.com/xxx/xxx.git` |
-| `REPOSITORY_SSH_URL` | Provides Repository SSH URL | `git@github.com:xxx/xxx.git` |
-| `REPOSITORY_WATCHERS_COUNT` | Provides Repository Watchers Count | `0` |
-| `REPOSITORY_STARGAZERS_COUNT` | Provides Repository Stars Count | `0` |
-| `REPOSITORY_FORKS_COUNT` | Provides Repository Forks Count | `0` |
-| `REPOSITORY_OWNER` | Extracts Owner Name For The Current Repository | `myname/test-repo` => `myname` |
-| `OWNER_PROFILE` | Provides Github's Profile URL | `https://github.com/${REPOSITORY_OWNER}` |
-| `OWNER_TYPE` | Value is set to `Organization` if current repository belongs to a **Organization** if not its set to **User** | `Organization` / `User` |
-| `IS_OWNER_ORGANIZATION` |Set to `Yes` or `No` Based on `OWNER_TYPE` value  | `no` |
-| `IS_OWNER_USER` | Set to `Yes` or `No` Based on `OWNER_TYPE` value | `yes` |
+|`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
+
+### Repository Owner Related Variables
+| ENV NAME | Description | Example |
+| :---: | --- | --- |
+|`REPOSITORY_OWNER` | Extracts Owner Name For The Current Repository | `myname/test-repo` => `myname` |
+|`OWNER_PROFILE` | Provides Github's Profile URL | `https://github.com/${REPOSITORY_OWNER}` |
+|`OWNER_TYPE` | Value is set to `Organization` if current repository belongs to a **Organization** if not its set to **User** | `Organization` / `User` |
+|`IS_OWNER_ORGANIZATION` |Set to `Yes` or `No` Based on `OWNER_TYPE` value  | `no` |
+|`IS_OWNER_USER` | Set to `Yes` or `No` Based on `OWNER_TYPE` value | `yes` |
 
 
 
