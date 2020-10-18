@@ -23,6 +23,17 @@ Below listed variables are set by this action when used
 |`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
 |`REPOSITORY_TOPICS` | provides current repository topics | `["topic1","topic2"]` |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
+| `REPOSITORY_GIT_URL` | Provides Repository GIT URL | `git://github.com/xxx/xxx.git` |
+| `REPOSITORY_SSH_URL` | Provides Repository SSH URL | `git@github.com:xxx/xxx.git` |
+| `REPOSITORY_WATCHERS_COUNT` | Provides Repository Watchers Count | `0` |
+| `REPOSITORY_STARGAZERS_COUNT` | Provides Repository Stars Count | `0` |
+| `REPOSITORY_FORKS_COUNT` | Provides Repository Forks Count | `0` |
+| `REPOSITORY_OWNER` | Extracts Owner Name For The Current Repository | `myname/test-repo` => `myname` |
+| `OWNER_PROFILE` | Provides Github's Profile URL | `https://github.com/${REPOSITORY_OWNER}` |
+| `OWNER_TYPE` | Value is set to `Organization` if current repository belongs to a **Organization** if not its set to **User** | `Organization` / `User` |
+| `IS_OWNER_ORGANIZATION` |Set to `Yes` or `No` Based on `OWNER_TYPE` value  | `no` |
+| `IS_OWNER_USER` | Set to `Yes` or `No` Based on `OWNER_TYPE` value | `yes` |
+
 
 
 ## 🚀 Usage
