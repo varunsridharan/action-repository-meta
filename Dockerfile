@@ -1,4 +1,4 @@
-FROM php:cli-alpine
+FROM varunsridharan/actions-alpine-php:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
