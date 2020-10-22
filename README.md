@@ -50,7 +50,7 @@ Below listed variables are set by this action when used
 ### Example Workflow
 ```yaml
   - name: "Repository Meta"
-    uses: varunsridharan/action-repository-meta@master
+    uses: varunsridharan/action-repository-meta@main
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   - run: echo $REPOSITORY_HOMEPAGE_URL
