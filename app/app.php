@@ -1,7 +1,5 @@
 <?php
-global $data;
-global $github_api;
-global $repo;
+global $data, $github_api, $repo;
 
 set_time_limit( 0 );
 error_reporting( E_ALL );
@@ -18,90 +16,45 @@ $data = $github_api->decode( $github_api->get( 'repos/' . $repo ) );
 if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
+$owner = _get( $data, 'owner' );
+$name = _get( $data, 'name' );
 
-if ( _validate( $data, 'name' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_SLUG', $data->name );
-	gh_set_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $data->name ) ) );
-}
+gh_set_env_not_exists( 'REPOSITORY_SLUG', $name );
+gh_set_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $name ) ) );
+gh_set_env_not_exists( 'REPOSITORY_FULL_NAME', _get( $owner, 'full_name' ) );
 
-if ( _validate( $data, 'full_name' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_FULL_NAME', $data->full_name );
-}
+gh_set_env_not_exists( 'REPOSITORY_OWNER', _get( $owner, 'login' ) );
+gh_set_env_not_exists( 'OWNER_PROFILE', _get( $owner, 'html_url' ) );
+gh_set_env_not_exists( 'OWNER_TYPE', _get( $owner, 'type' ) );
+gh_set_env_not_exists( 'OWNER_AVATAR_URL', _get( $owner, 'avatar_url' ) );
+gh_set_env_not_exists( 'IS_OWNER_ORGANIZATION', ( 'Organization' === _get( $owner, 'type' ) ) );
+gh_set_env_not_exists( 'IS_OWNER_USER', ( 'Organization' === _get( $owner, 'type' ) ) );
 
-if ( _validate( $data, 'owner' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_OWNER', $data->owner->login );
-	gh_set_env_not_exists( 'OWNER_PROFILE', $data->owner->html_url );
-	gh_set_env_not_exists( 'OWNER_TYPE', $data->owner->type );
+gh_set_env_not_exists( 'REPOSITORY_IS_PRIVATE', _get( $data, 'private' ) );
+gh_set_env_not_exists( 'REPOSITORY_IS_FORK', _get( $data, 'fork' ) );
+gh_set_env_not_exists( 'REPOSITORY_IS_TEMPLATE', _get( $data, 'is_template' ) );
 
-	if ( 'Organization' === $data->owner->type ) {
-		gh_set_env_not_exists( 'IS_OWNER_ORGANIZATION', 'yes' );
-		gh_set_env_not_exists( 'IS_OWNER_USER', 'no' );
-	} else {
-		gh_set_env_not_exists( 'IS_OWNER_ORGANIZATION', 'no' );
-		gh_set_env_not_exists( 'IS_OWNER_USER', 'yes' );
-	}
-}
+gh_set_env_not_exists( 'REPOSITORY_GITHUB_URL', _get( $data, 'html_url' ) );
+gh_set_env_not_exists( 'REPOSITORY_HOMEPAGE_URL', _get( $data, 'homepage' ) );
+gh_set_env_not_exists( 'REPOSITORY_GIT_URL', _get( $data, 'git_url' ) );
+gh_set_env_not_exists( 'REPOSITORY_SSH_URL', _get( $data, 'ssh_url' ) );
 
-if ( _validate( $data, 'private' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_IS_PRIVATE', ( isset( $data->private ) && true === $data->private ) ? 'yes' : 'no' );
-}
+gh_set_env_not_exists( 'REPOSITORY_DESCRIPTION', _get( $data, 'description' ) );
 
-if ( _validate( $data, 'fork' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_IS_FORK', ( isset( $data->fork ) && true === $data->fork ) ? 'yes' : 'no' );
-}
+gh_set_env_not_exists( 'REPOSITORY_CREATED_AT', _get( $data, 'created_at' ) );
+gh_set_env_not_exists( 'REPOSITORY_UPDATED_AT', _get( $data, 'updated_at' ) );
+gh_set_env_not_exists( 'REPOSITORY_PUSHED_AT', _get( $data, 'pushed_at' ) );
 
-if ( _validate( $data, 'html_url' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_GITHUB_URL', $data->html_url );
-}
-
-if ( _validate( $data, 'homepage' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_HOMEPAGE_URL', $data->homepage );
-}
-
-if ( _validate( $data, 'git_url' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_GIT_URL', $data->git_url );
-}
-
-if ( _validate( $data, 'ssh_url' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_SSH_URL', $data->ssh_url );
-}
-
-if ( _validate( $data, 'description' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_DESCRIPTION', $data->description );
-}
-
-if ( _validate( $data, 'created_at' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_CREATED_AT', $data->created_at );
-}
-
-if ( _validate( $data, 'updated_at' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_UPDATED_AT', $data->updated_at );
-}
-
-if ( _validate( $data, 'pushed_at' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_PUSHED_AT', $data->pushed_at );
-}
-
-if ( _validate( $data, 'default_branch' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_DEFAULT_BRANCH', $data->default_branch );
-}
+gh_set_env_not_exists( 'REPOSITORY_DEFAULT_BRANCH', _get( $data, 'default_branch' ) );
 
 if ( ! empty( gh_env( 'GITHUB_SHA', false ) ) ) {
 	$sha_short = substr( gh_env( 'GITHUB_SHA', false ), 0, 8 );
 	gh_set_env_not_exists( 'SHA_SHORT', $sha_short );
 }
 
-if ( _validate( $data, 'watchers_count' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_WATCHERS_COUNT', $data->watchers_count );
-}
-
-if ( _validate( $data, 'stargazers_count' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_STARGAZERS_COUNT', $data->stargazers_count );
-}
-
-if ( _validate( $data, 'forks_count' ) ) {
-	gh_set_env_not_exists( 'REPOSITORY_FORKS_COUNT', $data->forks_count );
-}
+gh_set_env_not_exists( 'REPOSITORY_WATCHERS_COUNT', _get( $data, 'watchers_count' ) );
+gh_set_env_not_exists( 'REPOSITORY_STARGAZERS_COUNT', _get( $data, 'stargazers_count' ) );
+gh_set_env_not_exists( 'REPOSITORY_FORKS_COUNT', _get( $data, 'forks_count' ) );
 
 $github_ref_regex = '#^refs/\w+/#';
 $github_ref       = preg_match( $github_ref_regex, gh_env( 'GITHUB_REF' ) ) ? preg_replace( $github_ref_regex, '', gh_env( 'GITHUB_REF' ) ) : null;

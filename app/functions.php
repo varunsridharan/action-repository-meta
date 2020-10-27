@@ -12,3 +12,7 @@ function _validate( $var, $key ) {
 	gh_log_warning( 'Unable To Fetch ' . $key );
 	return false;
 }
+
+function _get( $var, $key ) {
+	return ( _validate( $var, $key ) ) ? $var->$key : false;
+}
