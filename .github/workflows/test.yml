@@ -12,7 +12,7 @@ on:
 
 
 jobs:
-  test:
+  self_test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -22,6 +22,12 @@ jobs:
         uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  remote_repo_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
 
       - name: "Metadata For wponion/wponion"
         uses: ./
