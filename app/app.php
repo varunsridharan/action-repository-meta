@@ -1,18 +1,19 @@
 <?php
 global $data, $github_api;
 
-set_time_limit( 0 );
-
-error_reporting( E_ALL );
-
 define( 'APP_PATH', __DIR__ . '/' );
+set_time_limit( 0 );
 
 require_once '/gh-toolkit/php.php';
 require_once '/gh-toolkit/gh-api.php';
 require_once APP_PATH . 'functions.php';
 
+$repo = gh_input( 'REPOSITORY', gh_env( 'GITHUB_REPOSITORY' ) );
+$repo = ( empty( $repo ) ) ? gh_env( 'GITHUB_REPOSITORY' ) : $repo;
+define( 'REQUEST_REPOSITORY', $repo );
+define( 'IS_DEBUG', gh_input( 'DEBUG', false ) );
 
-define( 'REQUEST_REPOSITORY', gh_input( 'REPOSITORY', gh_env( 'GITHUB_REPOSITORY' ) ) );
+error_reporting( ( IS_DEBUG ) ? E_ALL : 0 );
 
 $data = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY ) );
 

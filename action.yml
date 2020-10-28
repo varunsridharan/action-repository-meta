@@ -4,6 +4,20 @@ author: 'varunsridharan'
 branding:
   icon: 'database'
   color: 'yellow'
+
+inputs:
+  repository:
+    description: 'Custom Repository To Fetch Information For'
+    required: false
+    default: false
+  debug:
+    description: 'Set True To Show Debug Messages'
+    required: false
+    default: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
+    - ${{ inputs.debug }}
