@@ -15,8 +15,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
       - name: Github Repository Metadata Test
-        uses: varunsridharan/action-repository-meta@main
+        uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
