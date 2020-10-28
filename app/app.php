@@ -18,7 +18,7 @@ if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
 
-gh_log_group_start( 'GH API VAR' );
+/*gh_log_group_start( 'GH API VAR' );
 print_r( $data );
 gh_log_group_end();
 
@@ -28,7 +28,7 @@ gh_log_group_end();
 
 gh_log_group_start( 'GITHUB_EVENT_PATH VAR' );
 print_r( json_decode( file_get_contents( $_ENV['GITHUB_EVENT_PATH'] ), true ) );
-gh_log_group_end();
+gh_log_group_end();*/
 
 require_once APP_PATH . 'includes/basic.php';
 require_once APP_PATH . 'includes/community.php';
