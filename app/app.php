@@ -11,7 +11,6 @@ require_once APP_PATH . 'functions.php';
 $repo = gh_input( 'REPOSITORY', gh_env( 'GITHUB_REPOSITORY' ) );
 $repo = ( empty( $repo ) ) ? gh_env( 'GITHUB_REPOSITORY' ) : $repo;
 $repo = ( 'false' === $repo || false === $repo ) ? gh_env( 'GITHUB_REPOSITORY' ) : $repo;
-var_dump( $repo );
 define( 'REQUEST_REPOSITORY', $repo );
 define( 'IS_DEBUG', gh_input( 'DEBUG', false ) );
 
@@ -48,7 +47,7 @@ require_once APP_PATH . 'includes/owner.php';
 gh_log_group_end();
 gh_log();
 
-gh_log_group_start( 'Repository Type' );
+gh_log_group_start( 'Repository Status' );
 require_once APP_PATH . 'includes/type.php';
 gh_log_group_end();
 gh_log();
