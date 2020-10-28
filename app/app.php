@@ -43,7 +43,7 @@ $name  = _get( $data, 'name' );
 
 gh_set_env_not_exists( 'REPOSITORY_SLUG', $name );
 gh_set_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $name ) ) );
-gh_set_env_not_exists( 'REPOSITORY_FULL_NAME', _get( $owner, 'full_name' ) );
+gh_set_env_not_exists( 'REPOSITORY_FULL_NAME', _get( $data, 'full_name' ) );
 
 gh_set_env_not_exists( 'REPOSITORY_OWNER', _get( $owner, 'login' ) );
 gh_set_env_not_exists( 'OWNER_PROFILE', _get( $owner, 'html_url' ) );
@@ -68,6 +68,13 @@ gh_set_env_not_exists( 'REPOSITORY_UPDATED_AT', _get( $data, 'updated_at' ) );
 gh_set_env_not_exists( 'REPOSITORY_PUSHED_AT', _get( $data, 'pushed_at' ) );
 
 gh_set_env_not_exists( 'REPOSITORY_DEFAULT_BRANCH', _get( $data, 'default_branch' ) );
+
+$license = _get( $data, 'license' );
+if ( $license ) {
+	gh_set_env_not_exists( 'REPOSITORY_LICENSE_SLUG', _get( $license, 'key' ) );
+	gh_set_env_not_exists( 'REPOSITORY_LICENSE', _get( $license, 'name' ) );
+
+}
 
 if ( ! empty( gh_env( 'GITHUB_SHA', false ) ) ) {
 	$sha_short = substr( gh_env( 'GITHUB_SHA', false ), 0, 8 );
