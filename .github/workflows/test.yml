@@ -75,6 +75,8 @@ jobs:
           echo " "
           echo "RELEASE_VERSION => $RELEASE_VERSION"
           echo " "
+          echo "OWNER_AVATAR_URL => $OWNER_AVATAR_URL"
+          echo " "
         env:
           REPOSITORY_FULL_NAME: ${{ env.REPOSITORY_FULL_NAME }}
           REPOSITORY_SLUG: ${{ env.REPOSITORY_SLUG }}
@@ -101,3 +103,4 @@ jobs:
           IS_OWNER_ORGANIZATION: ${{ env.IS_OWNER_ORGANIZATION }}
           IS_OWNER_USER: ${{ env.IS_OWNER_USER }}
           RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
+          OWNER_AVATAR_URL: ${{ env.OWNER_AVATAR_URL }}
