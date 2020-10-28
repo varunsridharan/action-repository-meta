@@ -9,7 +9,7 @@ function _validate( $var, $key ) {
 	if ( isset( $var->$key ) ) {
 		return true;
 	}
-	GH_LOG::Log( sprintf( 'Warning: ⚠️   Unable To Fetch {%s}', $key ), 'normal', 'yellow' );
+	GH_LOG::Log( sprintf( 'Warning: ⚠️   Unable To Fetch {%s}', $key ), 'black', 'yellow' );
 	return false;
 }
 
