@@ -17,8 +17,6 @@ if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
 
-print_r( $data );
-
 $owner = _get( $data, 'owner' );
 $name  = _get( $data, 'name' );
 
