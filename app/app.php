@@ -16,8 +16,11 @@ $data = $github_api->decode( $github_api->get( 'repos/' . $repo ) );
 if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
+
+print_r( $data );
+
 $owner = _get( $data, 'owner' );
-$name = _get( $data, 'name' );
+$name  = _get( $data, 'name' );
 
 gh_set_env_not_exists( 'REPOSITORY_SLUG', $name );
 gh_set_env_not_exists( 'REPOSITORY_NAME', ucwords( str_replace( '-', ' ', $name ) ) );
