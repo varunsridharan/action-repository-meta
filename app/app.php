@@ -10,6 +10,7 @@ require_once APP_PATH . 'functions.php';
 
 $repo = gh_input( 'REPOSITORY', gh_env( 'GITHUB_REPOSITORY' ) );
 $repo = ( empty( $repo ) ) ? gh_env( 'GITHUB_REPOSITORY' ) : $repo;
+var_dump( $repo );
 define( 'REQUEST_REPOSITORY', $repo );
 define( 'IS_DEBUG', gh_input( 'DEBUG', false ) );
 
