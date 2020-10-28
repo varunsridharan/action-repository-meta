@@ -13,8 +13,9 @@ Below listed variables are set by this action when used
 |`REPOSITORY_SLUG`| provide exact slug for current repo | `myname/test-repo` => `test-repo` |
 |`REPOSITORY_NAME` | provide readable name | `test-repo` => `Test Repo` |
 |`REPOSITORY_DESCRIPTION` | provides value which is set in repo settings | `Your Custom Description` |
-|`REPOSITORY_IS_PRIVATE` | sets to **yes** if its a private repo | `yes` |
-|`REPOSITORY_IS_FORK` | sets to **yes** if its a forked repo | `yes` |
+|`REPOSITORY_IS_PRIVATE` | sets to **true** if its a private repo | `true` |
+|`REPOSITORY_IS_FORK` | sets to **true** if its a forked repo | `true` |
+|`REPOSITORY_IS_TEMPLATE` | sets to **true** if its a template repo | `true` |
 |`REPOSITORY_CREATED_AT` | provides created at date | `2020-06-03T07:57:39Z` |
 |`REPOSITORY_UPDATED_AT` | provides updated at date | `2020-07-02T07:01:30Z` |
 |`REPOSITORY_PUSHED_AT` | provides pushed at date | `2020-07-02T07:01:28Z` |
@@ -40,9 +41,10 @@ Below listed variables are set by this action when used
 | :---: | --- | --- |
 |`REPOSITORY_OWNER` | Extracts Owner Name For The Current Repository | `myname/test-repo` => `myname` |
 |`OWNER_PROFILE` | Provides Github's Profile URL | `https://github.com/${REPOSITORY_OWNER}` |
+|`OWNER_AVATAR_URL` | Provides Github's Avatar URL | `` |
 |`OWNER_TYPE` | Value is set to `Organization` if current repository belongs to a **Organization** if not its set to **User** | `Organization` / `User` |
-|`IS_OWNER_ORGANIZATION` |Set to `Yes` or `No` Based on `OWNER_TYPE` value  | `no` |
-|`IS_OWNER_USER` | Set to `Yes` or `No` Based on `OWNER_TYPE` value | `yes` |
+|`IS_OWNER_ORGANIZATION` |Set to `true` or `false` Based on `OWNER_TYPE` value  | `false` |
+|`IS_OWNER_USER` | Set to `true` or `false` Based on `OWNER_TYPE` value | `true` |
 
 > * USING `RELEASE_VERSION` in normal comment will provide **Commit Hash** and if used in a taged version then it will provide the tag value **vX.X.X** 
 
