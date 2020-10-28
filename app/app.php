@@ -22,21 +22,14 @@ gh_log_group_start( 'GH API VAR' );
 print_r( $data );
 gh_log_group_end();
 
-gh_log_group_start( 'GITHUB VAR' );
-print_r( $GITHUB );
-gh_log_group_end();
-
 gh_log_group_start( '$_ENV VAR' );
 print_r( $_ENV );
 gh_log_group_end();
 
-gh_log_group_start( '$ENV VAR' );
-print_r( $ENV );
+gh_log_group_start( 'GITHUB_EVENT_PATH VAR' );
+print_r( json_decode( file_get_contents( $_ENV['GITHUB_EVENT_PATH'] ), true ) );
 gh_log_group_end();
 
-gh_log_group_start( '$JOB VAR' );
-print_r( $JOB );
-gh_log_group_end();
 
 $owner = _get( $data, 'owner' );
 $name  = _get( $data, 'name' );
