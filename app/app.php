@@ -17,6 +17,27 @@ if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
 
+
+gh_log_group_start( 'GH API VAR' );
+print_r( $data );
+gh_log_group_end();
+
+gh_log_group_start( 'GITHUB VAR' );
+print_r( $GITHUB );
+gh_log_group_end();
+
+gh_log_group_start( '$_ENV VAR' );
+print_r( $_ENV );
+gh_log_group_end();
+
+gh_log_group_start( '$ENV VAR' );
+print_r( $ENV );
+gh_log_group_end();
+
+gh_log_group_start( '$JOB VAR' );
+print_r( $JOB );
+gh_log_group_end();
+
 $owner = _get( $data, 'owner' );
 $name  = _get( $data, 'name' );
 
