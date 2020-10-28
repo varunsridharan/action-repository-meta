@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 * Option to fetch meta data for custom repository
 
 ### New Variables
+| ENV NAME |  Description | Example |
+| :---: | --- | --- |
 | `REPOSITORY_IS_ARCHIVED` | sets to **true** if its a archived repo | `true` |
 | `REPOSITORY_IS_DISABLED` | sets to **true** if its a disabled repo | `true` |
 | `REPOSITORY_IS_TEMPLATE` | sets to **true** if its a template repo | `true` |
