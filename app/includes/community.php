@@ -10,15 +10,13 @@ if ( $license ) {
 
 }
 
-print_r( 'repos/' . REQUEST_REPOSITORY . '/community/profile' );
+$community = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY . '/community/profile' ) );
 
-#$community = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY . '/community/profile' ) );
-
-/*if ( empty( $community ) ) {
+if ( empty( $community ) ) {
 	gh_log_error( 'Unable To Fetch Community Information For : ' . REQUEST_REPOSITORY );
-}*/
+}
 
 
-/*gh_log_group_start( 'community info' );
+gh_log_group_start( 'community info' );
 print_r( $community );
-gh_log_group_end();*/
+gh_log_group_end();
