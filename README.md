@@ -52,6 +52,8 @@ Below listed variables are set by this action when used
 | `REPOSITORY_HAS_PAGES` | Value set to **true** if  _PAGES_ feature is enabled | `true` |
 
 ### Repository Status Variables
+| ENV NAME |  Description | Example |
+| :---: | --- | --- |
 |`REPOSITORY_IS_PRIVATE` | sets to **true** if its a private repo | `true` |
 |`REPOSITORY_IS_FORK` | sets to **true** if its a forked repo | `true` |
 |`REPOSITORY_IS_TEMPLATE` | sets to **true** if its a template repo | `true` |
