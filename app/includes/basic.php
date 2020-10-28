@@ -21,9 +21,11 @@ gh_set_env_not_exists( 'RELEASE_VERSION', $github_ref );
 
 if ( empty( $topics ) ) {
 	try {
-		$topics = $github_api->decode( $github_api->get( 'repos/' . $repo . '/topics', [], [] ) );
+		$topics = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY . '/topics', [], [] ) );
 	} catch ( \Milo\Github\UnexpectedResponseException $exception ) {
-		$topics = $github_api->decode( $github_api->get( 'repos/' . $repo . '/topics', [], [ 'Accept' => 'application/vnd.github.mercy-preview+json' ] ) );
+		$topics = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY . '/topics', [], [ 'Accept' => 'application/vnd.github.mercy-preview+json' ] ) );
+	} finally {
+
 	}
 	$topics = ( isset( $topics->names ) && ! empty( $topics->names ) ) ? $topics->names : false;
 }
@@ -32,5 +34,5 @@ if ( ! empty( $topics ) ) {
 	$topics = ( empty( $topics ) ) ? '' : json_encode( $topics );
 	gh_set_env_not_exists( 'REPOSITORY_TOPICS', addslashes( $topics ) );
 } else {
-	GH_LOG::Log( 'Unable To Fetch Repository Topics', 'black', 'yellow' );
+	GH_LOG::Log( 'Unable To Fetch Repository Topics For : ' . REQUEST_REPOSITORY, 'black', 'yellow' );
 }
