@@ -20,10 +20,38 @@ if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Repository Data via API For : ' . REQUEST_REPOSITORY );
 }
 
+gh_log_group_start( 'Repository Basic Info' );
 require_once APP_PATH . 'includes/basic.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository Community Health Files Info' );
 require_once APP_PATH . 'includes/community.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository { forks, stars, watchers, .etc } Counts' );
 require_once APP_PATH . 'includes/counts.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository Features { issues, wiki, pages, .etc }' );
 require_once APP_PATH . 'includes/features.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository Owner Info' );
 require_once APP_PATH . 'includes/owner.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository Type' );
 require_once APP_PATH . 'includes/type.php';
+gh_log_group_end();
+gh_log();
+
+gh_log_group_start( 'Repository URL\'s' );
 require_once APP_PATH . 'includes/urls.php';
+gh_log_group_end();
+gh_log();
+
