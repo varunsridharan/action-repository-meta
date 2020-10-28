@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.4 - 28/10/2020
+* Option to fetch meta data for custom repository
+
+### New Variables
+| ENV NAME |  Description | Example |
+| :---: | --- | --- |
+| `REPOSITORY_IS_ARCHIVED` | sets to **true** if its a archived repo | `true` |
+| `REPOSITORY_IS_DISABLED` | sets to **true** if its a disabled repo | `true` |
+| `REPOSITORY_IS_TEMPLATE` | sets to **true** if its a template repo | `true` |
+| `OWNER_PROFILE` | Provides Github's Profile URL | `https://github.com/${REPOSITORY_OWNER}` |
+| `REPOSITORY_CONTENTS_REPORTS_ENABLED` | Set to true if **Contents Reports** Enabled in the repository | `false` |
+| `REPOSITORY_CODE_OF_CONDUCT_URL` | Provide **CODE_OF_CONDUCT.md** file's URL | `https://github.com/{owner}/{repo}/blob/{default_branch}/CODE_OF_CONDUCT.md` |
+| `REPOSITORY_CONTRIBUTING_URL` | Provide **CONTRIBUTING.md** file's URL | `https://github.com/{owner}/{repo}/blob/{default_branch}/CONTRIBUTING.md` |
+| `REPOSITORY_LICENSE` | Name of the LICENSE used in the repo | `MIT License` |
+| `REPOSITORY_LICENSE_URL` | Provide **LICENSE** file's URL | `https://github.com/{owner}/{repo}/blob/{default_branch}/LICENSE` |
+| `REPOSITORY_LICENSE_SLUG` | License's SLUG | `mit` |
+| `REPOSITORY_LICENSE_SPDX_ID` | Name Based On [SPDX specification](https://spdx.org/) | `MIT` |
+| `REPOSITORY_README_URL` | Provides **README.md** file's URL | `https://github.com/{owner}/{repo}/blob/{default_branch}/README.md` |
+| `REPOSITORY_HAS_ISSUES` | Value set to **true** if  _ISSUES_ feature is enabled | `true` |
+| `REPOSITORY_HAS_PROJECTS` | Value set to **true** if  _PROJECTS_ feature is enabled | `true` |
+| `REPOSITORY_HAS_DOWNLOADS` | Value set to **true** if  _DOWNLOADS_ feature is enabled | `true` |
+| `REPOSITORY_HAS_WIKI` | Value set to **true** if  _WIKI_ feature is enabled | `true` |
+| `REPOSITORY_HAS_PAGES` | Value set to **true** if  _PAGES_ feature is enabled | `true` |
+
 ## 1.3.2 - 22/10/2020
 ### Changed
 * Updated Docker Image From `php:cli-alpine` to `varunsridharan/actions-alpine-php:latest`

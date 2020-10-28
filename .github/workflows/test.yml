@@ -18,89 +18,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Github Repository Metadata Test
+      - name: "Metadata For Self"
         uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Test Variables
-        run: |
-          echo "REPOSITORY_FULL_NAME => $REPOSITORY_FULL_NAME"
-          echo " "
-          echo "REPOSITORY_SLUG => $REPOSITORY_SLUG"
-          echo " "
-          echo "REPOSITORY_NAME => $REPOSITORY_NAME"
-          echo " "
-          echo "REPOSITORY_IS_PRIVATE => $REPOSITORY_IS_PRIVATE"
-          echo " "
-          echo "REPOSITORY_IS_FORK => $REPOSITORY_IS_FORK"
-          echo " "
-          echo "REPOSITORY_GITHUB_URL => $REPOSITORY_GITHUB_URL"
-          echo " "
-          echo "REPOSITORY_HOMEPAGE_URL => $REPOSITORY_HOMEPAGE_URL"
-          echo " "
-          echo "REPOSITORY_DESCRIPTION => $REPOSITORY_DESCRIPTION"
-          echo " "
-          echo "REPOSITORY_CREATED_AT => $REPOSITORY_CREATED_AT"
-          echo " "
-          echo "REPOSITORY_UPDATED_AT => $REPOSITORY_UPDATED_AT"
-          echo " "
-          echo "REPOSITORY_PUSHED_AT => $REPOSITORY_PUSHED_AT"
-          echo " "
-          echo "REPOSITORY_DEFAULT_BRANCH => $REPOSITORY_DEFAULT_BRANCH"
-          echo " "
-          echo "REPOSITORY_TOPICS => $REPOSITORY_TOPICS"
-          echo " "
-          echo "SHA_SHORT => $SHA_SHORT"
-          echo " "
-          echo "REPOSITORY_GIT_URL => $REPOSITORY_GIT_URL"
-          echo " "
-          echo "REPOSITORY_SSH_URL => $REPOSITORY_SSH_URL"
-          echo " "
-          echo "REPOSITORY_WATCHERS_COUNT => $REPOSITORY_WATCHERS_COUNT"
-          echo " "
-          echo "REPOSITORY_STARGAZERS_COUNT => $REPOSITORY_STARGAZERS_COUNT"
-          echo " "
-          echo "REPOSITORY_FORKS_COUNT => $REPOSITORY_FORKS_COUNT"
-          echo " "
-          echo "REPOSITORY_OWNER => $REPOSITORY_OWNER"
-          echo " "
-          echo "OWNER_PROFILE => $OWNER_PROFILE"
-          echo " "
-          echo "OWNER_TYPE => $OWNER_TYPE"
-          echo " "
-          echo "IS_OWNER_ORGANIZATION => $IS_OWNER_ORGANIZATION"
-          echo " "
-          echo "IS_OWNER_USER => $IS_OWNER_USER"
-          echo " "
-          echo "RELEASE_VERSION => $RELEASE_VERSION"
-          echo " "
-          echo "OWNER_AVATAR_URL => $OWNER_AVATAR_URL"
-          echo " "
+      - name: "Metadata For wponion/wponion"
+        uses: ./
+        with:
+          REPOSITORY: wponion/wponion
         env:
-          REPOSITORY_FULL_NAME: ${{ env.REPOSITORY_FULL_NAME }}
-          REPOSITORY_SLUG: ${{ env.REPOSITORY_SLUG }}
-          REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
-          REPOSITORY_IS_PRIVATE: ${{ env.REPOSITORY_IS_PRIVATE }}
-          REPOSITORY_IS_FORK: ${{ env.REPOSITORY_IS_FORK }}
-          REPOSITORY_GITHUB_URL: ${{ env.REPOSITORY_GITHUB_URL }}
-          REPOSITORY_HOMEPAGE_URL: ${{ env.REPOSITORY_HOMEPAGE_URL }}
-          REPOSITORY_DESCRIPTION: ${{ env.REPOSITORY_DESCRIPTION }}
-          REPOSITORY_CREATED_AT: ${{ env.REPOSITORY_CREATED_AT }}
-          REPOSITORY_UPDATED_AT: ${{ env.REPOSITORY_UPDATED_AT }}
-          REPOSITORY_PUSHED_AT: ${{ env.REPOSITORY_PUSHED_AT }}
-          REPOSITORY_DEFAULT_BRANCH: ${{ env.REPOSITORY_DEFAULT_BRANCH }}
-          REPOSITORY_TOPICS: ${{ env.REPOSITORY_TOPICS }}
-          SHA_SHORT: ${{ env.SHA_SHORT }}
-          REPOSITORY_GIT_URL: ${{ env.REPOSITORY_GIT_URL }}
-          REPOSITORY_SSH_URL: ${{ env.REPOSITORY_SSH_URL }}
-          REPOSITORY_WATCHERS_COUNT: ${{ env.REPOSITORY_WATCHERS_COUNT }}
-          REPOSITORY_STARGAZERS_COUNT: ${{ env.REPOSITORY_STARGAZERS_COUNT }}
-          REPOSITORY_FORKS_COUNT: ${{ env.REPOSITORY_FORKS_COUNT }}
-          REPOSITORY_OWNER: ${{ env.REPOSITORY_OWNER }}
-          OWNER_PROFILE: ${{ env.OWNER_PROFILE }}
-          OWNER_TYPE: ${{ env.OWNER_TYPE }}
-          IS_OWNER_ORGANIZATION: ${{ env.IS_OWNER_ORGANIZATION }}
-          IS_OWNER_USER: ${{ env.IS_OWNER_USER }}
-          RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
-          OWNER_AVATAR_URL: ${{ env.OWNER_AVATAR_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
