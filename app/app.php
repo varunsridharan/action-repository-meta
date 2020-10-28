@@ -33,6 +33,7 @@ gh_log_group_end();
 require_once APP_PATH . 'includes/basic.php';
 require_once APP_PATH . 'includes/community.php';
 require_once APP_PATH . 'includes/counts.php';
+require_once APP_PATH . 'includes/features.php';
 require_once APP_PATH . 'includes/owner.php';
 require_once APP_PATH . 'includes/type.php';
 require_once APP_PATH . 'includes/urls.php';
