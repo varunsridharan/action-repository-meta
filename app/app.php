@@ -10,13 +10,13 @@ require_once '/gh-toolkit/php.php';
 require_once '/gh-toolkit/gh-api.php';
 require_once APP_PATH . 'functions.php';
 
-$repo = gh_env( 'GITHUB_REPOSITORY' );
-$data = $github_api->decode( $github_api->get( 'repos/' . $repo ) );
+define( 'REQUEST_REPOSITORY', gh_env( 'GITHUB_REPOSITORY' ) );
+
+$data = $github_api->decode( $github_api->get( 'repos/' . REQUEST_REPOSITORY ) );
 
 if ( empty( $data ) ) {
 	gh_log_error( 'Unable To Fetch Data From Github Api' );
 }
-
 
 gh_log_group_start( 'GH API VAR' );
 print_r( $data );
