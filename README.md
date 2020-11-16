@@ -17,6 +17,9 @@ Below listed variables are set by this action when used
 |`REPOSITORY_UPDATED_AT` | provides updated at date | `2020-07-02T07:01:30Z` |
 |`REPOSITORY_PUSHED_AT` | provides pushed at date | `2020-07-02T07:01:28Z` |
 |`REPOSITORY_DEFAULT_BRANCH` | provides branch name which is set as default | `master` |
+| `GITHUB_REF_SLUG` | The slug of the branch or tag ref that triggered the workflow (i.e. slug of `refs/heads/feat/feature-branch-1` ). If neither a branch or tag is available for the event type, the variable will not exist. | `refs-heads-feat-feature-branch-1` |
+|`GITHUB_REF_NAME` | The branch or tag name that triggered the workflow. If neither a branch or tag is available for the event type, the variable will not exist. | `feat/feature-branch-1` |
+|`GITHUB_REF_NAME_SLUG` | The slug of the branch or tag name that triggered the workflow. If neither a branch or tag is available for the event type, the variable will not exist. | `feat-feature-branch-1` |
 |`SHA_SHORT` | The shortened commit SHA (8 characters) that triggered the workflow. | `ffac537e` |
 |`RELEASE_VERSION`* | provides branch name which is set as default |`Branch` OR `Comment Hash` OR `Version Number` |
 |`REPOSITORY_TOPICS` | provides current repository topics | `["topic1","topic2"]` |

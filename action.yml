@@ -16,8 +16,5 @@ inputs:
     default: false
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.repository }}
-    - ${{ inputs.debug }}
+  using: 'node12'
+  main: 'dist/index.js'

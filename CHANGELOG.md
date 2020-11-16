@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.0 - 16/11/2020
+* Migrated To NodeJS To improve speed 
+
+### New Variables
+| ENV NAME |  Description | Example |
+| :---: | --- | --- |
+| `GITHUB_REF_SLUG` | The slug of the branch or tag ref that triggered the workflow (i.e. slug of `refs/heads/feat/feature-branch-1` ). If neither a branch or tag is available for the event type, the variable will not exist. | `refs-heads-feat-feature-branch-1` |
+|`GITHUB_REF_NAME` | The branch or tag name that triggered the workflow. If neither a branch or tag is available for the event type, the variable will not exist. | `feat/feature-branch-1` |
+|`GITHUB_REF_NAME_SLUG` | The slug of the branch or tag name that triggered the workflow. If neither a branch or tag is available for the event type, the variable will not exist. | `feat-feature-branch-1` |
+
 ## 1.4 - 28/10/2020
 * Option to fetch meta data for custom repository
 
