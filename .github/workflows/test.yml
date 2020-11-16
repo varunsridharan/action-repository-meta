@@ -1,4 +1,4 @@
-name: "Test"
+name: "🧪 Test"
 
 on:
   release:
@@ -7,30 +7,59 @@ on:
     branches:
       - main
       - develop
-      - nodejs
-  schedule:
-    - cron: '*/60 * * * *'
-
 
 jobs:
-  self_test:
+  linux:
+    name: "🧪  Linux"
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - name: "📥  Fetching Repository Contents"
+        uses: actions/checkout@main
 
-      - name: "Metadata For Self"
+      - name: "💾   Metadata For Self"
         uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  remote_repo_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - name: "💾   Metadata For wponion/wponion"
+        uses: ./
+        with:
+          REPOSITORY: wponion/wponion
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "Metadata For wponion/wponion"
+  windows:
+    name: "🧪  Windows"
+    runs-on: windows-latest
+    steps:
+      - name: "📥  Fetching Repository Contents"
+        uses: actions/checkout@main
+
+      - name: "💾   Metadata For Self"
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "💾   Metadata For wponion/wponion"
+        uses: ./
+        with:
+          REPOSITORY: wponion/wponion
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  macos:
+    name: "🧪  macOS"
+    runs-on: windows-latest
+    steps:
+      - name: "📥  Fetching Repository Contents"
+        uses: actions/checkout@main
+
+      - name: "💾   Metadata For Self"
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "💾   Metadata For wponion/wponion"
         uses: ./
         with:
           REPOSITORY: wponion/wponion
