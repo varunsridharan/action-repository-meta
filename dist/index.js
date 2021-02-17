@@ -8799,10 +8799,12 @@ async function run() {
 
 	const GITHUB_REF = toolkit.input.env( 'GITHUB_REF' );
 	const GITHUB_SHA = toolkit.input.env( 'GITHUB_SHA' );
-	
+
 	const { data: repository_info } = await api.repos.get( {
 		owner: vars.request_owner,
 		repo: vars.request_repo,
+	} ).then( ( data ) => {
+		toolkit.log( JSON.stringify( data ) );
 	} ).catch( () => toolkit.log.warn( 'Failed : Getting Repository Information' ) );
 
 	const { data: repository_community } = await api.repos.getCommunityProfileMetrics( {
