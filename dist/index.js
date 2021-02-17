@@ -8812,6 +8812,7 @@ async function run() {
 	} ).catch( (res) => {
 		toolkit.log.warn( 'Failed : Getting Profile Metrics' );
 		toolkit.log.warn( res );
+		toolkit.log.warn( vars );
 	} );
 
 	const { data: repository_topics } = await api.repos.getAllTopics( {
