@@ -8809,10 +8809,12 @@ async function run() {
 	const { data: repository_community } = await api.repos.getCommunityProfileMetrics( {
 		owner: vars.request_owner,
 		repo: vars.request_repo,
-	} ).catch( (res) => {
+	} ).catch( ( res ) => {
 		toolkit.log.warn( 'Failed : Getting Profile Metrics' );
 		toolkit.log.warn( res );
-		toolkit.log.warn( vars );
+		toolkit.log.warn( vars.repository );
+		toolkit.log.warn( vars.request_owner );
+		toolkit.log.warn( vars.request_repo );
 	} );
 
 	const { data: repository_topics } = await api.repos.getAllTopics( {
