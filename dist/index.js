@@ -8797,25 +8797,32 @@ const helper  = __webpack_require__( 6989 );
 async function run() {
 	toolkit.input.env_validate( 'GITHUB_TOKEN', 'Github Token Is Required' );
 
-	const GITHUB_REF = toolkit.input.env( 'GITHUB_REF' );
-	const GITHUB_SHA = toolkit.input.env( 'GITHUB_SHA' );
+	const GITHUB_REF         = toolkit.input.env( 'GITHUB_REF' );
+	const GITHUB_SHA         = toolkit.input.env( 'GITHUB_SHA' );
+	let repository_info      = false;
+	let repository_community = false;
+	let repository_topics    = false;
 
-	const { data: repository_info } = await api.repos.get( {
+	await api.repos.get( {
 		owner: vars.request_owner,
 		repo: vars.request_repo,
-	} ).then( ( data ) => {
-		toolkit.log( JSON.stringify( data ) );
-	} ).catch( () => toolkit.log.warn( 'Failed : Getting Repository Information' ) );
+	} )
+			 .then( ( data ) => repository_info = data.data )
+			 .catch( () => toolkit.log.warn( 'Unable To Fetch Repository Information' ) );
 
-	const { data: repository_community } = await api.repos.getCommunityProfileMetrics( {
+	await api.repos.getCommunityProfileMetrics( {
 		owner: vars.request_owner,
 		repo: vars.request_repo,
-	} ).catch( () => toolkit.log.yellowBright( 'Unable To Fetch Community Profile Metrics' ) );
+	} )
+			 .then( ( data ) => repository_community = data.data )
+			 .catch( () => toolkit.log.yellowBright( 'Unable To Fetch Community Profile Metrics' ) );
 
-	const { data: repository_topics } = await api.repos.getAllTopics( {
+	await api.repos.getAllTopics( {
 		owner: vars.request_owner,
 		repo: vars.request_repo
-	} ).catch( () => toolkit.log.warn( 'Failed : Getting Repo Topics' ) );
+	} )
+			 .then( ( data ) => repository_topics = data.data )
+			 .catch( () => toolkit.log.warn( 'Unable To Fetch Repository Topics' ) );
 
 
 	core.info( '' );
