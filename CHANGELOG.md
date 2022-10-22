@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.2 - 22/10/2022
+* Updated : Changed From Node12 To Node15 ([#10 Node12 is deprecated](https://github.com/varunsridharan/action-repository-meta/issues/10))
+
 ## 2.1 - 17/02/2021
 * Fixed : Javascript Error ([ Action stopped working #9 ](https://github.com/varunsridharan/action-repository-meta/issues/9)) 
 
